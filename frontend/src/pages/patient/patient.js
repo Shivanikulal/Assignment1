@@ -163,29 +163,31 @@ function AddPatient() {
               <div className="mt-8">
                 <h2 className="text-xl font-bold mb-4">All Patients</h2>
                 {allPatients.map((patient) => (
-                  <div key={patient._id} className="border border-gray-200 rounded-lg p-4 bg-white shadow-md mb-4">
-                    <h3 className="font-bold text-lg mb-2">{patient.Name}</h3>
-                    <p className="text-gray-700">{`Phone: ${patient.Phone}`}</p>
-                    <p className="text-gray-700">{`Address: ${patient.Street}, ${patient.City}, ${patient.State} ${patient.Zipcode}`}</p>
-                    <div className="flex justify-end items-center mt-4">
-                      <Link
-                        to={`/admin/patients/${patient._id}`}
-                        className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 ml-4"
-                      >
-                        View
-                      </Link>
-                      <Link
-                        to={`/admin/patients/${patient._id}/edit`}
-                        className="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 ml-4"
-                      >
-                        Edit
-                      </Link>
-                      <button
-                        onClick={() => handlePatientDelete(patient._id)}
-                        className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 ml-4"
-                      >
-                        Delete
-                      </button>
+                  <div key={patient._id} className="bg-opacity-40 bg-gradient-to-b from-red-100 to-blue-200 bg-white rounded-lg overflow-hidden backdrop-blur-100 shadow-lg transform transition-transform hover:scale-105">
+                    <div className="p-4">
+                      <h3 className="font-bold text-lg mb-2">{patient.Name}</h3>
+                      <p className="text-gray-700">{`Phone: ${patient.Phone}`}</p>
+                      <p className="text-gray-700">{`Address: ${patient.Street}, ${patient.City}, ${patient.State} ${patient.Zipcode}`}</p>
+                      <div className="flex justify-end items-center mt-4">
+                        <Link
+                          to={`/admin/patients/${patient._id}`}
+                          className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 ml-4"
+                        >
+                          View
+                        </Link>
+                        <Link
+                          to={`/admin/patients/${patient._id}/edit`}
+                          className="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 ml-4"
+                        >
+                          Edit
+                        </Link>
+                        <button
+                          onClick={() => handlePatientDelete(patient._id)}
+                          className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 ml-4"
+                        >
+                          Delete
+                        </button>
+                      </div>
                     </div>
                   </div>
                 ))}

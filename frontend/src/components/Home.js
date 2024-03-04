@@ -28,7 +28,7 @@ const WelcomeSection = () => {
           </Link>
         </div>
         <div className="md:w-full text-center relative">
-          <div className="aspect-w-16 aspect-h-9 w-full">
+          <div className="aspect-w-16 aspect-h-9 w-full h-full">
             <img
               src="/circle.png"
               alt="Circle Logo"

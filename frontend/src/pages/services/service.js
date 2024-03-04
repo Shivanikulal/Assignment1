@@ -65,28 +65,30 @@ function AddService() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {patients.map((patient) => (
               <div key={patient._id}>
-                <div className="bg-white rounded-lg shadow-md p-4">
-                  <h3 className="text-lg font-bold mb-2">{patient.Name}</h3>
-                  <div className="mb-2">
-                    <strong>ID:</strong> {patient._id}
-                  </div>
-                  <div className="mb-2">
-                    <strong>Phone Number:</strong> {patient.Phone}
-                  </div>
-                  <div className="border-t-2 border-gray-200 pt-4">
-                    <h4 className="text-xl font-bold mb-2">Reminders</h4>
-                    {patient.reminders && patient.reminders.length > 0 ? (
-                      patient.reminders
-                        .filter((reminder) => reminder.days.includes(dayOfWeek))
-                        .map((reminder, index) => (
-                          <div key={index} className="bg-gray-100 p-2 rounded-md mb-2">
-                            <p className="text-gray-800">{reminder.title}</p>
-                            {/* Add more reminder details here */}
-                          </div>
-                        ))
-                    ) : (
-                      <p className="text-gray-800">No reminders set for this patient.</p>
-                    )}
+                <div className="bg-opacity-40 bg-gradient-to-b from-red-100 to-blue-200 bg-white rounded-lg overflow-hidden backdrop-blur-100 shadow-lg transform transition-transform hover:scale-105">
+                  <div className="p-4">
+                    <h3 className="text-lg font-bold mb-2">{patient.Name}</h3>
+                    <div className="mb-2">
+                      <strong>ID:</strong> {patient._id}
+                    </div>
+                    <div className="mb-2">
+                      <strong>Phone Number:</strong> {patient.Phone}
+                    </div>
+                    <div className="border-t-2 border-gray-200 pt-4">
+                      <h4 className="text-xl font-bold mb-2">Reminders</h4>
+                      {patient.reminders && patient.reminders.length > 0 ? (
+                        patient.reminders
+                          .filter((reminder) => reminder.days.includes(dayOfWeek))
+                          .map((reminder, index) => (
+                            <div key={index} className="bg-gray-100 p-4 rounded-md mb-4">
+                              <p className="text-gray-800">{reminder.title}</p>
+                              {/* Add more reminder details here */}
+                            </div>
+                          ))
+                      ) : (
+                        <p className="text-gray-800">No reminders set for this patient.</p>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>

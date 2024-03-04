@@ -1,30 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import AuthService from "../services/auth.service";
-import PatientService from "../services/patient.service";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faIdCard, faPhone, faUsers,faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faIdCard, faPhone, faEnvelope, faUsers } from "@fortawesome/free-solid-svg-icons";
 
 const Profile = () => {
   const currentUser = AuthService.getCurrentUser();
-  const [patients, setPatients] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const patientsData = await PatientService.getAllPatients();
-        // Fetch reminders for each patient
-        const patientsWithReminders = await Promise.all(patientsData.map(async (patient) => {
-          const reminders = await PatientService.getAllRemindersOfPatient(patient._id);
-          return { ...patient, reminders };
-        }));
-        setPatients(patientsWithReminders);
-      } catch (error) {
-        console.error("Error fetching patients:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   if (!currentUser) {
     return (
@@ -82,32 +62,6 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        {patients.map((patient) => (
-          <div key={patient._id} className="max-w-md mx-auto bg-white rounded-md shadow-md p-4 mb-4">
-            <div className="mb-4">
-              <h3 className="text-lg font-bold mb-2">{patient.Name}</h3>
-              <div className="mb-2">
-                <strong>ID:</strong> {patient._id}
-              </div>
-              <div className="mb-2">
-                <strong>Phone Number:</strong> {patient.Phone}
-              </div>
-            </div>
-            <div className="border-t-2 border-gray-200 pt-4">
-              <h4 className="text-xl font-bold mb-2">Reminders</h4>
-              {patient.reminders && patient.reminders.length > 0 ? (
-                patient.reminders.map((reminder, index) => (
-                  <div key={index} className="bg-gray-100 p-2 rounded-md mb-2">
-                    <p className="text-gray-800">{reminder.title}</p>
-                    {/* Add more reminder details here */}
-                  </div>
-                ))
-              ) : (
-                <p className="text-gray-800">No reminders set for this patient.</p>
-              )}
-            </div>
-          </div>
-        ))}
       </div>
     </div>
   );
