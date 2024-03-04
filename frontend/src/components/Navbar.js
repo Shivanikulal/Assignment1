@@ -51,12 +51,6 @@ const Navbar = ({ showAdminBoard, showModeratorBoard, currentUser, logOut }) => 
             <Link to={"/home"} className="text-lg hover:text-blue-300 text-black">
               Home
             </Link>
-            <Link to={"/home/services"} className="text-lg hover:text-blue-300 text-black">
-              Services
-            </Link>
-            <Link to={"/home/feeds"} className="text-lg hover:text-blue-300 text-black">
-              Feeds
-            </Link>
             {showAdminBoard && (
               <Link to={"/admin"} className="text-lg hover:text-blue-300 text-black">
                 Admin Board

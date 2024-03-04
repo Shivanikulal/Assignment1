@@ -1,11 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import TestimonialCard from '../pages/testimonials/TestimonialCard';
-import TestimonialService from '../services/testimonial.service';
-import TestimonialSkeletonCard from './TestimonialSkeletonCard'; 
-import ImageService from '../services/image.service';
-import PatientService from '../services/patient.service';
-import { Carousel } from 'react-responsive-carousel';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import { Navigation, Pagination } from 'swiper/modules';
 import SwiperCore from 'swiper';
@@ -101,26 +94,14 @@ const SkeletonCard = () => {
 };
 
 const Homepage = () => {
-  const [allTestimonials, setAllTestimonials] = useState([]);
-  const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
   // Remove state for patients
 
   useEffect(() => {
-    Promise.all([
-      TestimonialService.getAllTestimonials(),
-      ImageService.getAllImages(),
-    ])
-      .then(([testimonials, imageData]) => {
-        setAllTestimonials(testimonials);
-        setImages(imageData);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-        setLoading(false);
-      });
+    // Add any necessary data fetching or initialization logic here
+    setLoading(false); // Set loading to false after data fetching or initialization
   }, []);
+
 
   return (
     <div className="bg-gray-100">
@@ -130,44 +111,7 @@ const Homepage = () => {
       ) : (
         <WelcomeSection />
       )}
-      {/* Testimonials Section */}
-      <section className="py-16 bg-gradient-to-b from-blue-300 to-grey-300">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-center">What Our Clients Say</h2>
-        {loading ? ( // Render the skeleton cards while loading
-          <div className="flex flex-wrap justify-center">
-            {Array.from({ length: 3 }, (_, index) => (
-              <div key={index}>
-                <TestimonialSkeletonCard />
-              </div>
-            ))}
-          </div>
-        ) : (
-          <Swiper
-            spaceBetween={20}
-            slidesPerView={3}
-            navigation={true}
-            pagination={{ clickable: true }}
-            onInit={(swiper) => {
-              swiper.on('resize', () => {
-                const slidesPerView = window.innerWidth < 640 ? 2 : 3;
-                swiper.params.slidesPerView = slidesPerView;
-                swiper.update();
-              });
-            }}
-          >
-            {allTestimonials.map((testimonial) => {
-              const matchingImage = images.find((image) => image.s3Key === testimonial.test_image);
-              return (
-                <SwiperSlide key={testimonial._id}>
-                  <TestimonialCard testimonial={testimonial} image={matchingImage} />
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
-        )}
-      </div>
-    </section>
+      {/* Other sections can be added here */}
     </div>
   );
 };

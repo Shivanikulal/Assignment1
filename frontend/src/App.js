@@ -16,19 +16,10 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import EventBus from "./common/EventBus";
 import ContactUs from "./pages/ContactUs";
-import YourComponent from "./pages/imageUpload";
-import Testimonial from "./pages/testimonials/testimonial";
 import UserList from "./pages/userList";
-import EditTestimonial from "./pages/testimonials/EditTestimonial";
 import AddPatient from "./pages/patient/patient";
 import EditPatient from "./pages/patient/EditPatient";
 import AddService from "./pages/services/service";
-import EditService from "./pages/services/EditService";
-import AddPost from "./pages/posts/post";
-import EditPost from "./pages/posts/EditPost";
-import FeedList from "./components/FeedList";
-import ServiceList from "./components/ServiceList"
-import ResetPass from "./common/ResetPass";
 import PatientProfile from "./pages/patient/patientProfile";
 
 const App = () => {
@@ -81,21 +72,12 @@ const App = () => {
           <Route path="/moderator" element={<BoardModerator />} />
           <Route exact path="/admin/contacts" element={<Contacts />} />
           <Route exact path="/contactUs" element={<ContactUs />} />
-          <Route exact path="/upload" element={<YourComponent />} />
           <Route exact path="/project/:project/update" element={<projectForm />} />
-          <Route exact path="/admin/testimonials" element={<Testimonial />} />
           <Route exact path="/moderator/userList" element={<UserList />} />
-          <Route exact path="/admin/testimonials/:id/edit" element={<EditTestimonial />} />
           <Route exact path="/admin/patients/:id/edit" element={<EditPatient />} />
           <Route exact path="/admin/patients/:id" element={<PatientProfile />} />
           <Route exact path="/admin/patients" element={<AddPatient />} />
           <Route exact path="/admin/services" element={<AddService />} />
-          <Route exact path="/admin/services/:id/edit" element={<EditService />} />
-          <Route exact path="/admin/posts" element={<AddPost />} />
-          <Route exact path="/admin/feeds/:id/edit" element={<EditPost />} />
-          <Route exact path="/home/feeds" element={<FeedList />} />
-          <Route exact path="/home/services" element={<ServiceList />} />
-          <Route exact path="/login/reset" element={<ResetPass />} />
         </Routes>
       </div>
       <Footer />

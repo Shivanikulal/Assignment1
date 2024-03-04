@@ -33,7 +33,7 @@ const Contacts = () => {
           <div className="w-full md:w-1/2 lg:w-1/3 px-2 py-2">
             <Link
               to="/admin/services"
-              className="btn btn-primary block w-full text-center py-3 rounded-lg bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 text-white font-semibold"
+              className="btn btn-primary block w-full text-center py-3 rounded-lg bg-gradient-to-r from-pink-400 to-pink-600 hover:from-pink-500 hover:to-pink-700 text-white font-semibold"
             >
               <img
                 src="https://i.ibb.co/bKjvw9f/pngwing-com-2.png"
@@ -41,23 +41,10 @@ const Contacts = () => {
                 className="h-8 w-8 mb-2 mx-auto"
               />
               Services
-              <p className="text-sm text-gray-600">Explore our services</p>
+              <p className="text-sm text-gray-600">Take care of patients</p>
             </Link>
           </div>
-          <div className="w-full md:w-1/2 lg:w-1/3 px-2 py-2">
-            <Link
-              to="/admin/testimonials"
-              className="btn btn-primary block w-full text-center py-3 rounded-lg bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-white font-semibold"
-            >
-              <img
-                src="https://i.ibb.co/xG34gLW/pngegg.png"
-                alt="Testimonials"
-                className="h-8 w-8 mb-2 mx-auto"
-              />
-              Testimonials
-              <p className="text-sm text-gray-600">Read customer testimonials</p>
-            </Link>
-          </div>
+         
           <div className="w-full md:w-1/2 lg:w-1/3 px-2 py-2">
             <Link
               to="/admin/contacts"
@@ -73,18 +60,7 @@ const Contacts = () => {
             </Link>
           </div>
           <div className="w-full md:w-1/2 lg:w-1/3 px-2 py-2">
-            <Link
-              to="/admin/posts"
-              className="btn btn-primary block w-full text-center py-3 rounded-lg bg-gradient-to-r from-purple-400 to-purple-600 hover:from-purple-500 hover:to-purple-700 text-white font-semibold"
-            >
-              <img
-                src="https://cdn4.iconfinder.com/data/icons/social-media-black-white-2/600/Instagram_glyph_svg-512.png"
-                alt="Feeds"
-                className="h-8 w-8 mb-2 mx-auto"
-              />
-              Feeds
-              <p className="text-sm text-gray-600">Share your experience</p>
-            </Link>
+            
           </div>
         </div>
       </header>

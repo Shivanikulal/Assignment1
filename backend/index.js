@@ -56,20 +56,12 @@ app.get("/", (req, res) => {
 // Import the contact and patient routers
 const contactRouter = require("./routes/contact.routes");
 const patientRouter = require("./routes/patient.routes"); // Import the patient router
-const postRoutes = require("./routes/postRoutes");
-const serviceRouter = require("./routes/service.routes")
-const testimonialRouter = require("./routes/testimonial.routes")
-const imageRoutes = require('./routes/imageRoutes')
-const resetRouter=require('./routes/reset.routes')
+
 
 app.use("/", contactRouter); // Mount the contact router on the /api/contacts route
 app.use("/", patientRouter); // Mount the patient router on the /api/patients route
 
-app.use("/", serviceRouter);
-app.use("/", testimonialRouter);
-app.use('/', postRoutes);
-app.use('/api', imageRoutes);
-app.use('/',resetRouter);
+
 
 // Import the authentication and user routes (replace with actual paths)
 try {
